@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راهنمای جامع غذای خانگی بچه گربه</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="راهنمای کامل و تعاملی برای تهیه غذای خشک خانگی مغذی و ایمن برای بچه گربه ۳ ماهه شما در ایران. شامل داشبورد تغذیه، مواد مجاز و ممنوع، دستور پخت‌های سفارشی و نکات حیاتی دامپزشکی.">
+    <meta name="keywords" content="غذای خانگی گربه, غذای بچه گربه, غذای خشک گربه, تغذیه گربه, رژیم غذایی گربه, بچه گربه ۳ ماهه, مکمل گربه, غذای گربه در ایران, غذای سالم گربه, دستور پخت غذای گربه, مواد ممنوعه گربه, دامپزشک تغذیه گربه">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/cat-food-guide"> <!-- Replace with your actual URL -->
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="راهنمای جامع غذای خانگی بچه گربه">
+    <meta property="og:description" content="راهنمای کامل و تعاملی برای تهیه غذای خشک خانگی مغذی و ایمن برای بچه گربه ۳ ماهه شما در ایران.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/cat-food-guide"> <!-- Replace with your actual URL -->
+    <meta property="og:image" content="https://placehold.co/1200x630/8B5CF6/ffffff?text=Cat+Food+Guide"> <!-- Placeholder image for social media share -->
+    <meta property="og:site_name" content="راهنمای غذای گربه">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Harmony -->
+    <!-- Application Structure Plan: A single-page application with a sticky navigation bar for quick access to logically restructured sections. The flow is designed around the user's journey: understanding the 'why' and 'what' (Intro & Nutrition Dashboard), exploring the 'how' (Ingredient Bank & Recipes), and implementing the plan (Transition Guide & Tips). This task-oriented structure prioritizes usability and safety by placing critical warnings upfront, using interactive visualizations for complex data, and providing step-by-step guides for processes, making the dense report content more digestible and actionable than a linear chapter-by-chapter layout. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Macronutrient Ratios -> Goal: Inform/Compare -> Viz: Donut Chart -> Interaction: Hover Tooltips -> Justification: Visualizes ideal dietary balance instantly. -> Library: Chart.js Canvas.
+        - Report Info: Key Daily Stats (Calories, Meals) -> Goal: Inform -> Viz: Styled Stat Cards -> Interaction: None -> Justification: Highlights critical, scannable numbers. -> Library: HTML/Tailwind.
+        - Report Info: List of Vitamins/Minerals -> Goal: Organize/Inform -> Viz: Interactive Icon Grid -> Interaction: Click-to-reveal details -> Justification: Condenses long lists into a manageable, explorable format. -> Library: HTML/JS.
+        - Report Info: Allowed/Forbidden Ingredients -> Goal: Organize/Warn -> Viz: Tabbed Cards & Alert Cards -> Interaction: Tabs for categories -> Justification: Separates safe from dangerous items clearly, using color to denote risk. -> Library: HTML/JS.
+        - Report Info: Recipes & Transition Plan -> Goal: Inform (Process) -> Viz: Step-by-step lists & Accordion Timeline -> Interaction: Click-to-expand -> Justification: Breaks down complex processes into simple, manageable steps. -> Library: HTML/JS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            margin: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #a5b4fc;
+        }
+        .tab.active {
+            border-color: #6d28d9;
+            color: #6d28d9;
+            font-weight: 600;
+        }
+        .recipe-tab.active {
+            background-color: #f3f4f6; /* Light gray for active tab */
+            color: #6d28d9;
+            border-bottom: 3px solid #6d28d9;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-violet-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center py-3">
+                <h1 class="text-xl md:text-2xl font-bold">🐾 راهنمای غذای گربه</h1>
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse text-sm lg:text-base">
+                    <a href="#intro" class="nav-link">مقدمه</a>
+                    <a href="#nutrition" class="nav-link">داشبورد تغذیه</a>
+                    <a href="#ingredients" class="nav-link">بانک مواد اولیه</a>
+                    <a href="#recipes" class="nav-link">دستور پخت</a>
+                    <a href="#transition" class="nav-link">برنامه انتقال</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span class="block w-6 h-0.5 bg-white"></span>
+                    <span class="block w-6 h-0.5 bg-white mt-1.5"></span>
+                    <span class="block w-6 h-0.5 bg-white mt-1.5"></span>
+                </button>
+            </nav>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-violet-700">
+            <a href="#intro" class="block text-center py-3 px-4 text-sm hover:bg-violet-600">مقدمه</a>
+            <a href="#nutrition" class="block text-center py-3 px-4 text-sm hover:bg-violet-600">داشبورد تغذیه</a>
+            <a href="#ingredients" class="block text-center py-3 px-4 text-sm hover:bg-violet-600">بانک مواد اولیه</a>
+            <a href="#recipes" class="block text-center py-3 px-4 text-sm hover:bg-violet-600">دستور پخت</a>
+            <a href="#transition" class="block text-center py-3 px-4 text-sm hover:bg-violet-600">برنامه انتقال</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-12">
+
+        <!-- Section 1: Introduction -->
+        <section id="intro" class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold text-violet-800 mb-4 text-center">چرا غذای خانگی برای بچه گربه شما؟</h2>
+            <p class="max-w-3xl mx-auto text-center text-slate-600 mb-8">
+                تهیه غذای خانگی به شما کنترل کاملی بر کیفیت مواد اولیه می‌دهد و می‌تواند راهی عالی برای تأمین یک رژیم غذایی سالم و متناسب با نیازهای خاص بچه گربه شما باشد. با این حال، این کار نیازمند دقت، دانش و تعهد است تا از تعادل کامل مواد مغذی و ایمنی غذا اطمینان حاصل شود. این راهنما به شما کمک می‌کند تا با در نظر گرفتن مواد در دسترس در ایران، بهترین تصمیم را برای سلامت دوست کوچک خود بگیرید.
+            </p>
+        </section>
+
+        <!-- Section 2: Nutrition Dashboard -->
+        <section id="nutrition" class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold text-violet-800 mb-6 text-center">داشبورد تغذیه بچه گربه (۳ ماهه)</h2>
+             <p class="max-w-3xl mx-auto text-center text-slate-600 mb-10">
+                بچه گربه‌ها در این سن رشد سریعی دارند و نیازهای تغذیه‌ای آن‌ها بسیار بالاست. این داشبورد، خلاصه‌ای از مهم‌ترین نیازهای روزانه یک بچه گربه ۳ ماهه را بر اساس استانداردهای جهانی به شما نشان می‌دهد تا بتوانید یک رژیم غذایی متعادل برای او فراهم کنید.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+                <!-- Macronutrients Chart -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-center">ترکیب درشت‌مغذی‌ها (ایده‌آل)</h3>
+                    <div class="chart-container">
+                        <canvas id="nutritionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Key Stats -->
+                <div class="lg:col-span-1 flex flex-col space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+                        <div class="text-5xl font-bold text-violet-600">~۲۰۰</div>
+                        <div class="text-lg text-slate-500 mt-2">کالری روزانه</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+                        <div class="text-5xl font-bold text-violet-600">۳</div>
+                        <div class="text-lg text-slate-500 mt-2">وعده غذایی در روز</div>
+                    </div>
+                </div>
+
+                <!-- Essential Nutrients -->
+                <div class="md:col-span-2 lg:col-span-1 bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-center">ریز‌مغذی‌های حیاتی</h3>
+                    <div id="nutrients-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                        <!-- Nutrients will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+             <!-- Modal for nutrient details -->
+            <div id="nutrient-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+                <div class="bg-white p-6 rounded-2xl shadow-xl max-w-sm w-full mx-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 id="modal-title" class="text-xl font-bold text-violet-800"></h3>
+                        <button id="modal-close" class="text-slate-500 hover:text-slate-800">&times;</button>
+                    </div>
+                    <p id="modal-description" class="text-slate-600"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Ingredient Bank -->
+        <section id="ingredients" class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold text-violet-800 mb-6 text-center">بانک مواد اولیه (مجاز و ممنوع)</h2>
+            <p class="max-w-3xl mx-auto text-center text-slate-600 mb-10">
+                انتخاب مواد اولیه صحیح، پایه و اساس یک غذای خانگی سالم است. در این بخش، مواد غذایی مجاز و در دسترس در ایران را به تفکیک بررسی می‌کنیم و لیست مواد سمی که هرگز نباید به گربه داده شوند را با تاکید ویژه مشخص می‌کنیم.
+            </p>
+            <!-- Tabs -->
+            <div class="flex justify-center border-b-2 border-slate-200 mb-8">
+                <button class="tab active py-2 px-6 text-slate-500 border-b-4 border-transparent" data-tab="safe">✅ مواد مجاز</button>
+                <button class="tab py-2 px-6 text-slate-500 border-b-4 border-transparent" data-tab="toxic">☠️ مواد ممنوعه</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content">
+                <!-- Safe Ingredients -->
+                <div id="safe-content" class="tab-pane">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="safe-ingredients-container">
+                        <!-- Safe ingredients will be populated by JS -->
+                    </div>
+                </div>
+                <!-- Toxic Ingredients -->
+                <div id="toxic-content" class="tab-pane hidden">
+                    <p class="text-center text-red-600 bg-red-100 p-4 rounded-lg mb-6 font-semibold">هشدار: مصرف حتی مقدار کمی از مواد زیر می‌تواند برای گربه شما بسیار خطرناک یا کشنده باشد.</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="toxic-ingredients-container">
+                        <!-- Toxic ingredients will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 4: Recipes -->
+        <section id="recipes" class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold text-violet-800 mb-6 text-center">دستور پخت غذای خشک خانگی</h2>
+            <p class="max-w-3xl mx-auto text-center text-slate-600 mb-10">
+                این دستورها برای تهیه غذایی با بافت ترد و "کیبل-مانند" طراحی شده‌اند که می‌توانید به عنوان یک وعده کامل (با افزودن مکمل‌ها) یا یک تشویقی سالم استفاده کنید. به یاد داشته باشید که غذای خانگی فاقد مواد نگهدارنده است و باید در یخچال نگهداری شود.
+            </p>
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="flex bg-slate-100">
+                     <button class="recipe-tab w-1/2 p-4 text-center font-semibold text-lg active" data-recipe="chicken">🍗 دستور مرغ</button>
+                     <button class="recipe-tab w-1/2 p-4 text-center font-semibold text-lg" data-recipe="fish">🐟 دستور ماهی</button>
+                </div>
+                <div id="recipe-content" class="p-6 md:p-8">
+                    <!-- Chicken Recipe -->
+                    <div id="chicken-recipe" class="recipe-pane">
+                         <!-- Content will be injected by JS -->
+                    </div>
+                    <!-- Fish Recipe -->
+                    <div id="fish-recipe" class="recipe-pane hidden">
+                        <!-- Content will be injected by JS -->
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Section 5: Transition Plan -->
+        <section id="transition" class="section-fade-in">
+            <h2 class="text-3xl font-bold text-violet-800 mb-6 text-center">برنامه انتقال و نکات نهایی</h2>
+             <p class="max-w-3xl mx-auto text-center text-slate-600 mb-10">
+                تغییر ناگهانی رژیم غذایی می‌تواند باعث مشکلات گوارشی شود. برای عادت دادن بچه گربه به غذای جدید، از این برنامه انتقال تدریجی ۷ تا ۱۰ روزه استفاده کنید.
+                در طول روز، می‌توانید ۳ وعده غذای خشک (تجاری یا خانگی) و ۱ وعده غذای تر را به گربه بدهید، یا هر وعده را ترکیبی از غذای خشک و تر تهیه کنید (به عنوان مثال، با پاشیدن غذای تر روی غذای خشک برای افزایش جذابیت). همیشه سلامت او را زیر نظر داشته باشید.
+            </p>
+            <div class="max-w-2xl mx-auto space-y-4">
+                <div class="transition-step bg-white p-5 rounded-xl shadow">
+                    <h3 class="font-semibold text-lg">روز ۱ تا ۳: شروع آهسته (۲۵٪ غذای جدید)</h3>
+                </div>
+                <div class="transition-step bg-white p-5 rounded-xl shadow">
+                    <h3 class="font-semibold text-lg">روز ۴ تا ۶: نیمه و نیمه (۵۰٪ غذای جدید)</h3>
+                </div>
+                <div class="transition-step bg-white p-5 rounded-xl shadow">
+                    <h3 class="font-semibold text-lg">روز ۷ تا ۱۰: عادت کردن (۷۵٪ تا ۱۰۰٪ غذای جدید)</h3>
+                </div>
+            </div>
+            <div class="mt-12 bg-indigo-100 border-r-4 border-indigo-500 text-indigo-800 p-6 rounded-lg max-w-3xl mx-auto">
+                <h3 class="font-bold text-xl mb-2">🚨 توصیه حیاتی: همیشه مشورت کنید!</h3>
+                <p>این راهنما جامع است اما جایگزین نظر تخصصی دامپزشک تغذیه نیست. قبل از هرگونه تغییر اساسی در رژیم غذایی بچه گربه، به خصوص اگر شرایط پزشکی خاصی دارد، حتما با دامپزشک مشورت کنید تا یک برنامه غذایی کاملاً متعادل و ایمن برای او تهیه شود.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-violet-800 text-white mt-16 py-6 text-center">
+        <p>ساخته شده با ❤️ برای سلامت گربه‌های ایران</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const nutritionData = {
+            macros: {
+                labels: ['پروتئین', 'چربی', 'کربوهیدرات'],
+                data: [52, 46, 2], // Example based on carnivorous needs
+                colors: ['#8b5cf6', '#a78bfa', '#ddd6fe']
+            },
+            micronutrients: [
+                { name: 'تورین', icon: '❤️', description: 'برای سلامت قلب و چشم ضروری است. منابع اصلی: قلب و جگر مرغ، گوشت قرمز و ماهی.' },
+                { name: 'کلسیم', icon: '🦴', description: 'برای رشد استخوان‌ها و دندان‌ها حیاتی است. نیاز به مکمل آن در غذای خانگی وجود دارد.' },
+                { name: 'امگا ۳', icon: '🐟', description: 'برای سلامت پوست، مو و کاهش التهاب مفید است. منبع اصلی: روغن ماهی.' },
+                { name: 'ویتامین A', icon: '👁️', description: 'برای بینایی و سیستم ایمنی مهم است. منبع اصلی: جگر و زرده تخم مرغ.' },
+                { name: 'ویتامین E', icon: '🌿', description: 'یک آنتی‌اکسیدان قوی برای محافظت از سلول‌هاست. در روغن‌های گیاهی و جگر یافت می‌شود.' },
+                { name: 'ویتامین B', icon: '⚡️', description: 'برای تولید انرژی و عملکرد سیستم عصبی ضروری است. منابع اصلی: گوشت، جگر و تخم مرغ.' }
+            ]
+        };
+
+        const ingredientsData = {
+            safe: [
+                { category: 'پروتئین‌ها', name: 'مرغ و بوقلمون', icon: '🍗', notes: 'سینه و ران بدون پوست و استخوان. جگر و قلب منبع عالی تورین.' },
+                { category: 'پروتئین‌ها', name: 'گوشت قرمز', icon: '🥩', notes: 'گاو و گوسفند کم‌چرب و کاملاً پخته.' },
+                { category: 'پروتئین‌ها', name: 'ماهی', icon: '🐠', notes: 'سالمون، ساردین. پخته و بدون استخوان. (کنسرو انسانی ممنوع!)' },
+                { category: 'پروتئین‌ها', name: 'تخم مرغ', icon: '🥚', notes: 'کاملاً پخته شده، منبع پروتئین کامل.' },
+                { category: 'سبزیجات', name: 'کدو حلوایی', icon: '🎃', notes: 'پوره شده، عالی برای هضم و سرشار از فیبر.' },
+                { category: 'سبزیجات', name: 'هویج و نخود', icon: '🥕', notes: 'پخته و له شده، به مقدار کم برای ویتامین.' },
+                { category: 'افزودنی‌ها', name: 'روغن زیتون/کتان', icon: '💧', notes: 'منبع چربی‌های سالم، به مقدار کم.' },
+                { category: 'مکمل‌ها', name: 'مکمل‌های ضروری', icon: '💊', notes: 'تورین، کلسیم و مولتی‌ویتامین مخصوص گربه طبق دستور دامپزشک.' }
+            ],
+            toxic: [
+                { name: 'پیاز و سیر', icon: '🧅', reason: 'باعث آسیب شدید به گلبول‌های قرمز و کم‌خونی می‌شود.' },
+                { name: 'شکلات', icon: '🍫', reason: 'حاوی تئوبرومین و کافئین است که برای قلب و سیستم عصبی سمی است.' },
+                { name: 'انگور و کشمش', icon: '🍇', reason: 'می‌تواند باعث نارسایی حاد کلیه شود.' },
+                { name: 'الکل', icon: '🍺', reason: 'بسیار خطرناک، باعث مسمومیت شدید می‌شود.' },
+                { name: 'کافئین', icon: '☕️', reason: 'باعث تپش قلب، لرزش و آسیب به اندام‌ها می‌شود.' },
+                { name: 'نمک', icon: '🧂', reason: 'مصرف بیش از حد می‌تواند منجر به مشکلات جدی مانند لرزش یا تشنج شود.' },
+                { name: 'استخوان پخته', icon: '🦴', reason: 'خرد شده و باعث خفگی یا پارگی دستگاه گوارش می‌شود.' },
+                { name: 'شیرین‌کننده‌های مصنوعی (زایلیتول)', icon: '🍬', reason: 'می‌تواند باعث افت ناگهانی قند خون و نارسایی کبد شود.' },
+                { name: 'آووکادو', icon: '🥑', reason: 'حاوی ماده‌ای به نام پرسیم است که می‌تواند برای گربه‌ها سمی باشد.' }
+            ]
+        };
+        
+        const recipes = {
+            chicken: {
+                title: 'کیبل خانگی با مرغ',
+                ingredients: [
+                    '۲ پیمانه سینه مرغ پخته و خرد شده', '۱/۴ پیمانه پوره کدو حلوایی', '۱ عدد تخم مرغ', '۱ قاشق غذاخوری روغن زیتون', 'مکمل‌های ضروری (تورین، کلسیم و ... طبق دستور دامپزشک)'
+                ],
+                steps: [
+                    'همه مواد را در غذاساز کاملا مخلوط کنید تا خمیر یکدستی حاصل شود.',
+                    'خمیر را به شکل گلوله‌های کوچک درآورید یا روی سینی پهن کرده و برش دهید.',
+                    'قطعات را روی سینی فر که با کاغذ روغنی پوشانده شده بچینید.',
+                    'در فر از قبل گرم شده با دمای ۱۷۰ درجه سانتی‌گراد به مدت ۳۰-۴۰ دقیقه بپزید تا خشک و ترد شوند.',
+                    'اجازه دهید کاملا خنک شوند، سپس در ظرف دربسته در یخچال نگهداری کنید (تا ۵ روز).'
+                ]
+            },
+            fish: {
+                title: 'کیبل خانگی با ماهی',
+                ingredients: [
+                    '۱ پیمانه ماهی سفید (مانند کاد) پخته و بدون استخوان', '۱/۴ پیمانه هویج پخته و له شده', '۱ عدد تخم مرغ', '۱/۲ قاشق چایخوری روغن ماهی', 'مکمل‌های ضروری (تورین، کلسیم و ... طبق دستور دامپزشک)'
+                ],
+                steps: [
+                    'ماهی پخته شده را با دقت از نظر استخوان بررسی کرده و با سایر مواد در غذاساز مخلوط کنید.',
+                    'خمیر را به شکل دلخواه (گلوله‌ای یا تخت) درآورده و به قطعات کوچک تقسیم کنید.',
+                    'قطعات را روی سینی فر که با کاغذ روغنی پوشانده شده بچینید.',
+                    'در فر از قبل گرم شده با دمای ۱۷۰ درجه سانتی‌گراد به مدت ۳۰-۴۰ دقیقه بپزید تا کاملا خشک شوند.',
+                    'پس از خنک شدن کامل، در ظرف دربسته در یخچال نگهداری کنید (تا ۵ روز).'
+                ]
+            }
+        };
+
+        // --- Chart.js Implementation ---
+        const ctx = document.getElementById('nutritionChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: nutritionData.macros.labels,
+                datasets: [{
+                    label: 'درصد',
+                    data: nutritionData.macros.data,
+                    backgroundColor: nutritionData.macros.colors,
+                    borderColor: '#f8fafc',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: "'Vazirmatn', sans-serif", size: 12 },
+                            padding: 20,
+                            boxWidth: 15
+                        }
+                    },
+                    tooltip: {
+                        bodyFont: { family: "'Vazirmatn', sans-serif" },
+                        titleFont: { family: "'Vazirmatn', sans-serif" },
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- Populate Micronutrients Grid & Modal Logic ---
+        const nutrientsGrid = document.getElementById('nutrients-grid');
+        const modal = document.getElementById('nutrient-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalClose = document.getElementById('modal-close');
+        
+        nutritionData.micronutrients.forEach(nutrient => {
+            const nutrientEl = document.createElement('div');
+            nutrientEl.className = 'flex flex-col items-center p-2 rounded-lg cursor-pointer hover:bg-slate-100 transition-colors';
+            nutrientEl.innerHTML = `<div class="text-3xl mb-1">${nutrient.icon}</div><div class="text-sm font-medium">${nutrient.name}</div>`;
+            nutrientEl.addEventListener('click', () => {
+                modalTitle.textContent = `${nutrient.icon} ${nutrient.name}`;
+                modalDescription.textContent = nutrient.description;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+            nutrientsGrid.appendChild(nutrientEl);
+        });
+        
+        modalClose.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                 modal.classList.add('hidden');
+            }
+        });
+
+
+        // --- Tab Logic for Ingredients ---
+        const tabs = document.querySelectorAll('.tab');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPaneId = tab.dataset.tab + '-content';
+                tabPanes.forEach(pane => {
+                    if (pane.id === targetPaneId) {
+                        pane.classList.remove('hidden');
+                    } else {
+                        pane.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // --- Populate Ingredients ---
+        const safeContainer = document.getElementById('safe-ingredients-container');
+        ingredientsData.safe.forEach(ing => {
+            const card = document.createElement('div');
+            card.className = 'bg-white p-4 rounded-xl shadow-md flex items-start space-x-4 space-x-reverse';
+            card.innerHTML = `
+                <div class="text-3xl">${ing.icon}</div>
+                <div>
+                    <h4 class="font-semibold text-lg">${ing.name}</h4>
+                    <p class="text-sm text-slate-500">${ing.notes}</p>
+                </div>
+            `;
+            safeContainer.appendChild(card);
+        });
+
+        const toxicContainer = document.getElementById('toxic-ingredients-container');
+        ingredientsData.toxic.forEach(ing => {
+            const card = document.createElement('div');
+            card.className = 'bg-red-50 p-4 rounded-xl shadow-md border-l-4 border-red-500 flex items-start space-x-4 space-x-reverse';
+            card.innerHTML = `
+                <div class="text-3xl pt-1">${ing.icon}</div>
+                <div>
+                    <h4 class="font-semibold text-lg text-red-800">${ing.name}</h4>
+                    <p class="text-sm text-red-700">${ing.reason}</p>
+                </div>
+            `;
+            toxicContainer.appendChild(card);
+        });
+        
+        // --- Recipe Tabs Logic ---
+        const recipeTabs = document.querySelectorAll('.recipe-tab');
+        const recipePanes = document.querySelectorAll('.recipe-pane');
+        
+        function populateRecipe(recipeId, data) {
+            const container = document.getElementById(recipeId);
+            container.innerHTML = `
+                <h3 class="text-2xl font-bold text-violet-700 mb-4">${data.title}</h3>
+                <div class="mb-6">
+                    <h4 class="font-semibold text-lg mb-2 border-b pb-1">مواد لازم:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600">
+                        ${data.ingredients.map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-2 border-b pb-1">مراحل آماده‌سازی:</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                        ${data.steps.map(s => `<li>${s}</li>`).join('')}
+                    </ol>
+                </div>
+            `;
+        }
+        
+        populateRecipe('chicken-recipe', recipes.chicken);
+        populateRecipe('fish-recipe', recipes.fish);
+        
+        recipeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                recipeTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPaneId = tab.dataset.recipe + '-recipe';
+                recipePanes.forEach(pane => {
+                    pane.classList.toggle('hidden', pane.id !== targetPaneId);
+                });
+            });
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        })
+
+        // --- Scroll Fade-in Animation ---
+        const sections = document.querySelectorAll('.section-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    });
+    </script>
+</body>
+</html>
